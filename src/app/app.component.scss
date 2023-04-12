@@ -1,0 +1,9 @@
+@import '../assets/scss/base';
+
+.body {
+  background: url(../assets/img/vetor1.svg), url(../assets/img/vetor2.svg);
+  background-repeat: no-repeat;
+  background-position: top left, right;
+  background-size: 352.11px, 84.03px;
+  background-color: $azul-principal;
+}

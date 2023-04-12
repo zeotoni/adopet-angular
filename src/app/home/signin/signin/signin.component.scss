@@ -1,7 +1,8 @@
+@import '../../../../assets/scss/base';
+
 @media screen and (min-width: 0) {
 
   .signin {
-    background-color: #ffff;
     text-align: center;
 
     &__logo {
@@ -13,42 +14,20 @@
       font-weight: 400;
       line-height: 21px;
       font-size: 16px;
-      color: #3772FF;
+      color: $azul-principal;
       padding: 16px 0 45px 0;
     }
 
     &__label {
-      color: #737380;
       font-weight: 400;
       font-size: 16px;
-      line-height: 24px;
       padding: 15px 0 10px 0;
-      display: block;
     }
 
     &__input {
-      box-sizing: border-box;
       width: 90%;
       height: 40px;
-      background: #F7F7F7;
-      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
-      mix-blend-mode: normal;
-      border-radius: 6px;
-      border: 1px solid #FFFFFF;
       padding-left: 10px;
-
-      &::placeholder {
-        text-align: center;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 16px;
-        text-align: center;
-        color: #BCBCBC;
-      }
-
-      &:focus {
-        border: 1px solid #808080;
-      }
     }
 
     &__recuperar-senha {
@@ -60,22 +39,14 @@
       margin-top: 15px;
       border: none;
       background-color: #FFFFFF;
+      display: block;
+      margin: 0 auto;
     }
 
     &__btn{
       width: 148px;
       padding: 10px 0;
-      margin: 0 108px 201px 108px;
-      display: block;
-      color: #FFFFFF;
-      font-weight: 600;
-      font-size: 16px;
-      background-color: #FC7071;
-      border-radius: 6px;
-      border: solid 1px #FC7071;
-      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.25));
-      cursor: pointer;
-      font-family: Arial, Helvetica, sans-serif;
+      margin: 0 auto 200px;
     }
   }
 }

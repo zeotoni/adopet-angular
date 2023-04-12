@@ -1,0 +1,40 @@
+@import '../../../../assets/scss/base';
+
+@media screen and (min-width: 0){
+  .signup {
+    text-align: center;
+
+    &__logo {
+      padding: 40px 0;
+      width: 142.54px;
+    }
+
+    &__titulo {
+      margin: 0 auto;
+      width: 312px;
+      font-weight: 400;
+      line-height: 21px;
+      font-size: 16px;
+      color: $azul-principal;
+      padding: 16px 0 45px;
+    }
+
+    &__input {
+      width: 90%;
+      height: 40px;
+      padding-left: 10px;
+    }
+
+    &__label {
+      font-weight: 400;
+      font-size: 16px;
+      padding: 15px 0 10px 0;
+    }
+
+    &__btn {
+      width: 148px;
+      padding: 10px 0;
+      margin: 40px auto 100px;
+    }
+  }
+}
