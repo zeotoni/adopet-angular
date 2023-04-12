@@ -1,7 +1,21 @@
-.home {
+.body {
+  font-family: 'Poppins', sans-serif;
+  background: url(../../assets/img/vetor1.svg), url(../../assets/img/vetor2.svg);
+  background-repeat: no-repeat;
+  background-position: top left, right;
+  background-size: 352.11px, 84.03px;
   background-color:  #3772FF;
+}
+
+.home {
   text-align: center;
   color: #FFFFFF;
+
+  &__logo {
+    padding: 48px 0 40px;
+    width: 186.67px;
+    // height: 46px;
+  }
 
   &__title {
     font-family: 'IBM Plex Sans', sans-serif;

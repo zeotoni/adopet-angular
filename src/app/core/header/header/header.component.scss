@@ -1,0 +1,13 @@
+.header {
+
+  &__menu {
+    position: relative;
+    display: flex;
+    padding: 48px;
+    align-items: center;
+  }
+
+  &__icone-msg {
+    margin-left: 50px;
+  }
+}
