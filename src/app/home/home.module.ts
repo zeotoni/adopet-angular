@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SigninComponent } from './signin/signin/signin.component';
-import { SignupComponent } from './signup/signup/signup.component';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home.component';
-import { CoreModule } from '../core/core.module';
 import { HomeRoutingModule } from './home-routing.module';
-
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,8 @@ import { HomeRoutingModule } from './home-routing.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    CoreModule
+    ReactiveFormsModule,
+    ComponentsModule
   ]
 })
 export class HomeModule { }

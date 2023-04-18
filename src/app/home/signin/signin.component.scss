@@ -1,4 +1,4 @@
-@import '../../../../assets/scss/base';
+@import '../../../assets/scss/base';
 
 @media screen and (min-width: 0) {
 
@@ -31,12 +31,11 @@
     }
 
     &__recuperar-senha {
-      padding: 15px 0 20px;
+      padding: 20px 0 20px;
       color: #FC7071;
       font-weight: 400;
-      font-size: 12px;
+      font-size: 14px;
       line-height: 24px;
-      margin-top: 15px;
       border: none;
       background-color: #FFFFFF;
       display: block;

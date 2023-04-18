@@ -1,0 +1,22 @@
+<main class="signin">
+  <div class="signin__container-logo">
+      <img src="assets/img/logo-azul.svg" alt="Logo da adopet" class="signin__logo">
+  </div>
+  <h3 class="signin__titulo">Já tem conta? Faça seu login:</h3>
+  <form [formGroup]="loginForm" class="signin__form" (ngSubmit)="login()">
+          <div>
+              <label class="signin__label label" for="email">Email</label>
+              <input formControlName="email" class="signin__input input" type="email" placeholder="Insira seu email" required>
+              <app-message *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched" text="Email is required"></app-message>
+              <app-message *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched" text="Must to be a valid email"></app-message>
+          </div>
+          <div>
+              <label class="signin__label label" for="senha">Senha</label>
+              <input formControlName="password" class="signin__input input" type="password" placeholder="Insira sua senha" required>
+              <app-message *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched" text="Senha is required"></app-message>
+          </div>
+          <button class="signin__recuperar-senha">Esqueci minha senha</button>
+
+          <button [disabled]="loginForm.invalid" type="submit" class="btn signin__btn">Entrar</button>
+  </form>
+</main>

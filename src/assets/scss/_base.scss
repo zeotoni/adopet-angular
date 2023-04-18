@@ -36,10 +36,18 @@ $creme: #FCF0E3;
     text-align: center;
     color: $cinza-claro;
   }
+
 }
 
 .label {
   color: $cinza-escuro;
   line-height: 24px;
   display: block;
+}
+
+.msg-success {
+  color: green;
+  font-size: 14px;
+  display: block;
+  padding-top: 10px;
 }
