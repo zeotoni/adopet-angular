@@ -37,7 +37,7 @@ export class SigninComponent implements OnInit{
     .subscribe((res) => {
       res.forEach((el: any) => {
         if(el.emailSv == email && el.senhaSv == password) {
-          this.router.navigate(['/pets'])
+          this.router.navigate(['pets'])
         }
       });
     },

@@ -1,0 +1,16 @@
+@import '../../../assets/scss/base';
+
+.pets-list {
+
+  text-align: center;
+
+  &__title {
+    color: $azul-principal;
+    padding: 40px 0 24px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    width: 226px;
+    margin: 0 auto;
+  }
+}
