@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header/header.component';
 import { RouterModule } from '@angular/router';
-import { MessageComponent } from './message/message.component';
+import { MsgComponent } from './msg-warning/msg-warning.component';
 
 
 @NgModule({
   declarations: [
     FooterComponent,
     HeaderComponent,
-    MessageComponent
+    MsgComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +19,7 @@ import { MessageComponent } from './message/message.component';
   exports: [
     FooterComponent,
     HeaderComponent,
-    MessageComponent
+    MsgComponent
   ]
 })
 export class ComponentsModule { }

@@ -7,13 +7,13 @@
           <div>
               <label class="signin__label label" for="email">Email</label>
               <input formControlName="email" class="signin__input input" type="email" placeholder="Insira seu email" required>
-              <app-message *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched" text="Email is required"></app-message>
-              <app-message *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched" text="Must to be a valid email"></app-message>
+              <app-msg-warning *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched" text="Email is required"></app-msg-warning>
+              <app-msg-warning *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched" text="Must to be a valid email"></app-msg-warning>
           </div>
           <div>
               <label class="signin__label label" for="senha">Senha</label>
               <input formControlName="password" class="signin__input input" type="password" placeholder="Insira sua senha" required>
-              <app-message *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched" text="Senha is required"></app-message>
+              <app-msg-warning *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched" text="Senha is required"></app-msg-warning>
           </div>
           <button class="signin__recuperar-senha">Esqueci minha senha</button>
 

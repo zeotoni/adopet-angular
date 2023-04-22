@@ -1,0 +1,32 @@
+<main class="message">
+  <h3 class="message__title">Envie uma mensagem para a pessoa ou instituição que está cuidado do animal:</h3>
+  <section class="message__form-section">
+      <form [formGroup]="msgForm" (submit)="sendMessage()" class="message__form">
+          <div>
+              <label class="message__label label" for="nome">Nome</label>
+              <input formControlName="name" class="message__input input" type="text" placeholder="Insira seu nome completo" required>
+              <app-msg-warning *ngIf="msgForm.get('name')?.errors?.['required'] && msgForm.get('name')?.touched" text="Name is required"></app-msg-warning>
+              <app-msg-warning *ngIf="msgForm.get('name')?.errors?.['minlength'] && msgForm.get('name')?.touched" text="Name needs to be bigger than 10"></app-msg-warning>
+          </div>
+          <div>
+              <label class="message__label label" for="telefone">Telefone</label>
+              <input formControlName="phone" class="message__input input" type="tel" placeholder="Insira seu telefone e/ou whatsapp" required>
+              <app-msg-warning *ngIf="msgForm.get('phone')?.errors?.['required'] && msgForm.get('phone')?.touched" text="Phone is required"></app-msg-warning>
+              <app-msg-warning *ngIf="msgForm.get('phone')?.errors?.['pattern'] && msgForm.get('phone')?.touched" text="Phone must to be in a valid format"></app-msg-warning>
+          </div>
+          <div>
+              <label class="message__label label" for="nome do animal">Nome do animal</label>
+              <input formControlName="petName" class="message__input input" type="text" placeholder="Por qual animal você se interessou?" required>
+              <app-msg-warning *ngIf="msgForm.get('petName')?.errors?.['required'] && msgForm.get('petName')?.touched" text="Pet name is required"></app-msg-warning>
+          </div>
+          <div>
+              <label class="message__label label" for="msg">Mensagem</label>
+              <textarea formControlName="msg" class="message__textarea input" cols="30" rows="10" placeholder="Escreva sua mensagem" required></textarea>
+              <app-msg-warning *ngIf="msgForm.get('msg')?.errors?.['required'] && msgForm.get('msg')?.touched" text="Message is required"></app-msg-warning>
+              <app-msg-warning *ngIf="msgForm.get('msg')?.errors?.['minlength'] && msgForm.get('msg')?.touched" text="The message needs to be bigger than 30"></app-msg-warning>
+          </div>
+          <p class="msg-success">{{ msgSuccess }}</p>
+          <button [disabled]="msgForm.invalid" type="submit" class="btn message__btn">Enviar</button>
+      </form>
+  </section>
+</main>
