@@ -1,10 +1,10 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { confirmPasswordValidator } from './confirm-password.validator';
-import { NewUser } from './new-user';
-import { SignupService } from './signup.service';
+import { User } from '../../shared/services/user-service/user';
 import { Router } from '@angular/router';
 import { EmailValidatorService } from './email-validator.service';
+import { UserService } from 'src/app/shared/services/user-service/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit{
   constructor(
     private renderer: Renderer2,
     private formBuilder: FormBuilder,
-    private service: SignupService,
+    private service: UserService,
     private route: Router,
     private emailValidator: EmailValidatorService
   ) {
@@ -40,7 +40,7 @@ export class SignupComponent implements OnInit{
 
   signup() {
     if(this.signupForm.valid && !this.signupForm.pending) {
-      const newUser = this.signupForm.getRawValue() as NewUser;
+      const newUser = this.signupForm.getRawValue() as User;
       this.service.registerUser(newUser)
         .subscribe(() => {
           this.route.navigate(['/signin'])

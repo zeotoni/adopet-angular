@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { PetsListComponent } from "./pets-list/pets-list.component";
 import { MessageComponent } from "./message/message.component";
+import { ProfileComponent } from "./profile/profile.component";
 
 const routes: Routes = [
   {
@@ -11,6 +12,9 @@ const routes: Routes = [
   {
     path: 'message',
     component: MessageComponent
+  },{
+    path: 'profile',
+    component: ProfileComponent
   }
 ]
 

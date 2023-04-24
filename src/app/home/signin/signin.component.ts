@@ -33,17 +33,15 @@ export class SigninComponent implements OnInit{
     const email = this.loginForm.get('email')?.value;
     const password = this.loginForm.get('password')?.value;
 
-    this.authService.authenticate()
-    .subscribe((res) => {
-      res.forEach((el: any) => {
-        if(el.emailSv == email && el.senhaSv == password) {
-          this.router.navigate(['pets'])
-        }
-      });
-    },
-    err => {
-      console.log(err);
+    this.authService.authenticate().subscribe(
+      (res) => {
+        res.forEach((el: any) => {
+          if(el.email == email && el.password == password) {
+            this.router.navigate(['pets'])
+          }
 
-    })
+        });
+      },
+      err => console.log(err));
   }
 }

@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { PetComponent } from './pet/pet.component';
 import { PetsListComponent } from './pets-list/pets-list.component';
 import { MessageComponent } from './message/message.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from '../components/components.module';
-
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -14,12 +14,14 @@ import { ComponentsModule } from '../components/components.module';
     CommonModule,
     PetsRoutingModule,
     ReactiveFormsModule,
-    ComponentsModule
+    ComponentsModule,
+    FormsModule
   ],
   declarations: [
     PetComponent,
     PetsListComponent,
-    MessageComponent
+    MessageComponent,
+    ProfileComponent
   ]
 })
 export class PetsModule { }

@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core";
-import { SignupService } from "./signup.service";
 import { AbstractControl } from "@angular/forms";
 import { debounceTime, first, map, switchMap } from "rxjs";
+import { UserService } from "src/app/shared/services/user-service/user.service";
 
 @Injectable({ providedIn: 'root'})
 export class EmailValidatorService {
 
   constructor(
-    private service: SignupService
+    private service: UserService
   ) {}
 
   emailExists() {
