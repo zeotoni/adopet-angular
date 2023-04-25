@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.renderer.setStyle(document.body, 'background-color', '#FFF');
+    // this.renderer.setStyle(document.body, 'background-color', '#FFF');
     this.signupForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email], [this.emailValidator.emailExists()]],
       name: ['', [Validators.required, Validators.minLength(10)]],

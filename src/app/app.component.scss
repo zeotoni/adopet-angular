@@ -1,9 +1,25 @@
 @import '../assets/scss/base';
 
-.body {
-  background: url(../assets/img/vetor1.svg), url(../assets/img/vetor2.svg);
+.home {
+  background: url(../assets/img/vetor1.svg);
   background-repeat: no-repeat;
-  background-position: top left, right;
-  background-size: 352.11px, 84.03px;
-  // background-color: $azul-principal
+  background-position: top left;
+  background-size: 352.11px;
+  background-color: $azul-principal
+}
+
+.signin {
+  background: url(../assets/img/patas.svg), url(../assets/img/vetor1.svg);
+  background-repeat: no-repeat;
+  background-position: top right, top left;
+  background-size: 189.96px, 352.11px;
+  background-color: $branco-principal;
+}
+
+.pets {
+  background: url(../assets/img/vetor1.svg);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 352.11px;
+  background-color: $branco-principal;
 }

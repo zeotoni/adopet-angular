@@ -21,7 +21,7 @@ export class SigninComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.renderer.setStyle(document.body, 'background-color', '#FFF');
+    // this.renderer.setStyle(document.body, 'background-color', '#FFF');
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required]]

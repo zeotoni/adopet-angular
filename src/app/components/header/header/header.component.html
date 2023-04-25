@@ -1,11 +1,16 @@
 <header class="header">
   <div class="header__menu">
     <!-- <img src="" alt=""> -->
-    <a class="header__icone-home" routerLink="home">
-      <img src="assets/img/Casa.png" alt="icone de casa">
-    </a>
-    <a class="header__icone-msg">
-      <img src="assets/img/Mensagens.svg" alt="icone de carta">
+    <div>
+      <a class="header__icone-home" routerLink="home">
+        <img src="assets/img/Casa.png" alt="icone de casa">
+      </a>
+      <a class="header__icone-msg">
+        <img src="assets/img/Mensagens.svg" alt="icone de carta">
+      </a>
+    </div>
+    <a routerLink="/pets/profile">
+      <img [src]="src" [alt]="description">
     </a>
   </div>
 </header>

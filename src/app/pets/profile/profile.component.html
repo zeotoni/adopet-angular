@@ -1,14 +1,14 @@
 <main class="profile">
   <h3 class="profile__title">Esse é o perfil que aparece para responsáveis ou ONGs que recebem sua mensagem.</h3>
   <section class="profile__container">
-      <form [formGroup]="profileForm" class="profile__form" (submit)="sendProfileData()">
+      <form #form="ngForm" [formGroup]="profileForm" class="profile__form" (submit)="sendProfileData()">
           <h4 class="profile__form-title">Perfil</h4>
-          <label class="profile__form-label label" for="foto">Foto</label>
+          <label class="profile__form-label label" for="foto de perfil">Foto</label>
           <div class="box-image">
               <label>
-                  <input (change)="handleFile(image = $any($event.target).files[0])" formControlName="image" class="box-image__input" type="file" accept="image/*" required>
+                  <input (change)="handleFile(image = $any($event.target).files[0])" formControlName="image" class="box-image__input" type="file" accept="image/*">
                   <figure class="box-image__figure">
-                      <img [src]="preview" alt="Foto de perfil" class="box-image__photo">
+                      <img [src]="preview" aria-label="foto de perfil" class="box-image__photo">
                   </figure>
               </label>
               <p class="box-image__text">Clique na foto para alterar</p>
@@ -16,18 +16,23 @@
           <div >
               <label class="profile__form-label label" for="nome">Nome</label>
               <input formControlName="name" class="profile__form-input input" type="text" placeholder="Joana Magalhães" required>
+              <app-msg-warning *ngIf="profileForm.get('name')?.errors?.['required'] && (form.submitted || profileForm.get('name')?.touched)" text="Name is required"></app-msg-warning>
           </div>
           <div>
               <label class="profile__form-label label" for="telefone">Telefone</label>
               <input formControlName="phone" class="profile__form-input input" type="tel" placeholder="55 11 XXXXXXXXX" required>
-          </div>
+              <app-msg-warning *ngIf="profileForm.get('phone')?.errors?.['required'] && (form.submitted || profileForm.get('phone')?.touched)" text="Phone number is required"></app-msg-warning>
+              <app-msg-warning *ngIf="profileForm.get('phone')?.errors?.['pattern'] && (form.submitted || profileForm.get('phone')?.touched)" text="Must to be a valid phone number"></app-msg-warning>
+            </div>
           <div>
               <label class="profile__form-label label" for="cidade">Cidade</label>
               <input formControlName="city" class="profile__form-input input" type="text" placeholder="São Paulo" required>
-          </div>
+              <app-msg-warning *ngIf="profileForm.get('city')?.errors?.['required'] && (form.submitted || profileForm.get('city')?.touched)" text="City is required"></app-msg-warning>
+            </div>
           <div>
               <label class="profile__form-label label" for="msg">Sobre</label>
               <textarea formControlName="about" class="profile__form-textarea input"  cols="30" rows="10" placeholder="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati." required></textarea>
+              <app-msg-warning *ngIf="profileForm.get('about')?.errors?.['required'] && (form.submitted || profileForm.get('about')?.touched)" text="A little text about you is required"></app-msg-warning>
           </div>
           <button [disabled]="profileForm.invalid" class="btn profile__form-btn" type="submit">Salvar</button>
           <p class="msg-success">{{ msgSuccess }}</p>

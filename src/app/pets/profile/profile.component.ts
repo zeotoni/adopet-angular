@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit{
       phone: ['', [Validators.required, Validators.pattern(/^(?:(?:\+|00)?(55)\s?)?(?:(?:\(?[1-9][0-9]\)?)?\s?)?(?:((?:9\d|[2-9])\d{3})-?(\d{4}))$/)]],
       city: ['', [Validators.required]],
       about: ['', [Validators.required]],
-      image: ['', [Validators.required]]
+      image: [this.preview]
     })
   }
 
@@ -42,24 +42,24 @@ export class ProfileComponent implements OnInit{
       image: this.preview
     }
 
-    this.service.updateUser(39, dados).subscribe(
-      (res) => console.log(res),
-      (error: any) => console.log(error)
-    )
+    this.service.updateUser(38, dados).subscribe(
+      () => {},err => console.log(err))
+
     this.msgSuccess = 'Dados salvos com sucesso!';
   }
 
   getProfileData() {
 
-    this.service.getProfileUser(39).subscribe(
+    this.service.getProfileUser(38).subscribe(
       (res) => {
         this.preview = res.image;
+
         this.profileForm.setValue({
           name: res.name,
           phone: res.phone,
           city: res.city,
           about: res.about,
-          image: res.image
+          image: ''
         })
 
       },

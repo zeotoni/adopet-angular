@@ -13,6 +13,6 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.renderer.setStyle(document.body, 'background-color', '#3772FF')
+    // this.renderer.setStyle(document.body, 'background-color', '#3772FF')
   }
 }
