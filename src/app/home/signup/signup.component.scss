@@ -27,6 +27,16 @@
       height: 40px;
       padding-left: 10px;
 
+      &-password {
+        position: relative;
+      }
+
+    }
+
+    .material-icons {
+      position: absolute;
+      left: calc(100% - 15%);
+      top: 57px;
     }
 
     &__label {

@@ -7,6 +7,7 @@
     background: url(../../../assets/img/vetor2-login.png) no-repeat left 0 top 217px;
     background-size: 84.03px 415px;
 
+
     &__logo {
       padding: 40px 0;
       width: 142.54px;
@@ -30,6 +31,16 @@
       width: 90%;
       height: 40px;
       padding-left: 10px;
+    }
+
+    &__form-input-password {
+      position: relative;
+    }
+
+    .material-icons {
+      position: absolute;
+      left: calc(100% - 15%);
+      top: 57px;
     }
 
     &__recuperar-senha {

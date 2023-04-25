@@ -21,16 +21,18 @@
           <app-msg-warning *ngIf="signupForm.get('name')?.errors?.['minlength'] && (form.submitted || signupForm.get('name')?.touched)" text="Minimum length is 10"></app-msg-warning>
       </div>
 
-      <div>
+      <div class="signup__input-password">
           <label class="signup__label label" for="senha">Senha</label>
-          <input formControlName="password" class="signup__input input" type="password" placeholder="Crie uma senha">
+          <input formControlName="password" class="signup__input input" [type]="inputType" placeholder="Crie uma senha">
+          <span class="material-icons eye-open" (click)="toggleVisibility()">{{eye}}</span>
           <app-msg-warning *ngIf="signupForm.get('password')?.errors?.['required'] && (form.submitted || signupForm.get('password')?.touched)" text="Password is required"></app-msg-warning>
           <app-msg-warning *ngIf="signupForm.get('password')?.errors?.['pattern'] && (form.submitted || signupForm.get('password')?.touched)" text="Password must have at least one uppercase letter, one number, none special character and must to be between 8 and 16 characters!"></app-msg-warning>
       </div>
 
-      <div>
+      <div class="signup__input-password">
           <label class="signup__label label" for="senha">Confirme sua senha</label>
-          <input formControlName="confirmPassword" class="signup__input input" type="password" placeholder="Repita a senha criada acima">
+          <input formControlName="confirmPassword" class="signup__input input" [type]="inputConfirm" placeholder="Repita a senha criada acima">
+          <span class="material-icons eye-open" (click)="toggleConfirmVisibility()">{{eyeConfirm}}</span>
           <app-msg-warning *ngIf="signupForm.get('confirmPassword')?.errors?.['required'] && (form.submitted || signupForm.get('confirmPassword')?.touched)" text="Password is required"></app-msg-warning>
           <app-msg-warning *ngIf="signupForm.errors?.['confirmPasswordValidator'] && (form.submitted || signupForm.get('confirmPassword')?.touched)" text="Password don't match"></app-msg-warning>
       </div>

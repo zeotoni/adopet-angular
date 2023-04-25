@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
@@ -11,9 +11,10 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class SigninComponent implements OnInit{
 
   loginForm!: FormGroup;
+  eye: string = 'visibility';
+  inputType: string = 'password';
 
   constructor(
-    private renderer: Renderer2,
     private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder
@@ -21,7 +22,6 @@ export class SigninComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // this.renderer.setStyle(document.body, 'background-color', '#FFF');
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required]]
@@ -43,5 +43,15 @@ export class SigninComponent implements OnInit{
         });
       },
       err => console.log(err));
+  }
+
+  toggleVisibility() {
+    if(this.eye == 'visibility') {
+      this.eye = 'visibility_off';
+      this.inputType = 'text';
+    } else {
+      this.eye = 'visibility'
+      this.inputType = 'password'
+    }
   }
 }

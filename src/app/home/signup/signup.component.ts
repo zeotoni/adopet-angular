@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { confirmPasswordValidator } from './confirm-password.validator';
 import { User } from '../../shared/services/user-service/user';
@@ -14,9 +14,12 @@ import { UserService } from 'src/app/shared/services/user-service/user.service';
 export class SignupComponent implements OnInit{
 
   signupForm!: FormGroup;
+  eye: string = 'visibility';
+  eyeConfirm: string = 'visibility';
+  inputType: string = 'password';
+  inputConfirm: string = 'password';
 
   constructor(
-    private renderer: Renderer2,
     private formBuilder: FormBuilder,
     private service: UserService,
     private route: Router,
@@ -25,7 +28,6 @@ export class SignupComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // this.renderer.setStyle(document.body, 'background-color', '#FFF');
     this.signupForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email], [this.emailValidator.emailExists()]],
       name: ['', [Validators.required, Validators.minLength(10)]],
@@ -46,6 +48,26 @@ export class SignupComponent implements OnInit{
           this.route.navigate(['/signin'])
         },
         err => console.log(err));
+    }
+  }
+
+  toggleVisibility() {
+    if(this.eye == 'visibility') {
+      this.eye = 'visibility_off';
+      this.inputType = 'text';
+    } else {
+      this.eye = 'visibility';
+      this.inputType = 'password';
+    }
+  }
+
+  toggleConfirmVisibility() {
+    if(this.eyeConfirm == 'visibility') {
+      this.eyeConfirm = 'visibility_off';
+      this.inputConfirm = 'text';
+    } else {
+      this.eyeConfirm = 'visibility'
+      this.inputConfirm = 'password';
     }
   }
 }
