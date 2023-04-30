@@ -1,25 +1,71 @@
 @import '../assets/scss/base';
 
-.home {
-  background: url(../assets/img/vetor1.svg);
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-size: 352.11px;
-  background-color: $azul-principal
+@media screen and (min-width: 0) {
+  .home {
+    background: url(../assets/img/vetor1.svg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 352.11px;
+    background-color: $azul-principal
+  }
+
+  .signin {
+    background: url(../assets/img/patas.svg), url(../assets/img/vetor1.svg);
+    background-repeat: no-repeat;
+    background-position: top right, top left;
+    background-size: 189.96px, 352.11px;
+    background-color: $branco-principal;
+  }
+
+  .pets {
+    background: url(../assets/img/vetor1.svg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 352.11px;
+    background-color: $branco-principal;
+  }
 }
 
-.signin {
-  background: url(../assets/img/patas.svg), url(../assets/img/vetor1.svg);
-  background-repeat: no-repeat;
-  background-position: top right, top left;
-  background-size: 189.96px, 352.11px;
-  background-color: $branco-principal;
+@media screen and (min-width: 768px) {
+  .home {
+    background-size: 560px;
+  }
+
+  .signin {
+    background-size: 224px, 560px;
+  }
+
+  .pets {
+    background: url(../assets/img/vetor1.svg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 352.11px;
+    background-color: $branco-principal;
+  }
 }
 
-.pets {
-  background: url(../assets/img/vetor1.svg);
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-size: 352.11px;
-  background-color: $branco-principal;
+@media screen and (min-width: 1280px) {
+  .home {
+    background: url(../assets/img/vetor1.svg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 352.11px;
+    background-color: $azul-principal
+  }
+
+  .signin {
+    background: url(../assets/img/patas.svg), url(../assets/img/vetor1.svg);
+    background-repeat: no-repeat;
+    background-position: top right, top left;
+    background-size: 189.96px, 352.11px;
+    background-color: $branco-principal;
+  }
+
+  .pets {
+    background: url(../assets/img/vetor1.svg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 352.11px;
+    background-color: $branco-principal;
+  }
 }

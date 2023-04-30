@@ -1,6 +1,6 @@
 @import '../../assets/scss/base';
 
-@media screen and (min-width:0) {
+@media screen and (min-width: 0) {
 
   .home {
     text-align: center;
@@ -48,4 +48,38 @@
     }
   }
 
+}
+
+@media screen and (min-width: 768px) {
+  .home {
+    background-size: 134px 664px;
+
+    &__logo {
+      padding: 151px 0 40px;
+      width: 251.59px;
+    }
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__subtitle {
+      width: 344px;
+      font-size: 18px;
+      line-height: 26px;
+      padding: 24px 0 38px;
+    }
+
+    &__btn {
+      padding: 16px 0;
+      width: 344px;
+      font-size: 18px;
+    }
+
+    &__img {
+      width: 338.28px;
+      height: 422px;
+      top: 37px;
+    }
+  }
 }

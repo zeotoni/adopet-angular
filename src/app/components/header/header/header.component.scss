@@ -1,14 +1,38 @@
-.header {
+@media screen and (min-width: 0) {
+  .header {
 
-  &__menu {
-    position: relative;
-    display: flex;
-    padding: 48px;
-    align-items: center;
-    justify-content: space-between;
+    &__logo {
+      display: none;
+    }
+
+    &__menu {
+      position: relative;
+      display: flex;
+      padding: 48px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__icone-msg {
+      margin-left: 50px;
+    }
   }
+}
 
-  &__icone-msg {
-    margin-left: 50px;
+@media screen and (min-width: 768px) {
+  .header {
+
+    &__logo {
+      display: flex;
+      width: 128px;
+      height: 30px;
+      margin-right: 50px;
+    }
+
+    &__menu {
+      justify-content: flex-start;
+      padding: 64px 50px;
+    }
+
   }
 }
