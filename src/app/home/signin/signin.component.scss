@@ -39,12 +39,12 @@
 
     .material-icons {
       position: absolute;
-      left: calc(100% - 15%);
+      left: 85%;
       top: 57px;
     }
 
     &__recuperar-senha {
-      padding: 20px 0 20px;
+      padding: 20px 0;
       color: #FC7071;
       font-weight: 400;
       font-size: 14px;
@@ -65,6 +65,45 @@
 
 @media screen and (min-width: 768px) {
 
+  .signin {
+
+    background: url(../../../assets/img/vetor2.svg) no-repeat right 0 top 145px;
+
+    &__logo {
+      padding: 90px 0 40px;
+      width: 251.59px;
+    }
+
+    &__titulo {
+      font-size: 18px;
+      padding: 0 0 30px;
+    }
+
+    &__label {
+      font-size: 18px;
+      padding: 24px 0 10px;
+    }
+
+    &__input {
+      width: 60%;
+    }
+
+    .material-icons {
+      position: absolute;
+      left: 75%;
+      top: 67px;
+    }
+
+    &__recuperar-senha {
+      padding: 35px 0;
+      line-height: 37px;
+    }
+
+    &__btn{
+      width: 164px;
+      margin: 0 auto 302px;
+    }
+  }
 }
 
 

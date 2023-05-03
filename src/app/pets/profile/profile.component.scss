@@ -123,3 +123,53 @@
     }
   }
 }
+
+@media screen and (min-width: 768px){
+
+  .profile {
+
+    &__title {
+      padding: 120px 0 26px;
+      width: 524px;
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    &__container {
+      margin: 0 auto 75px;
+      width: 524px;
+    }
+
+    &__form {
+      padding: 32px 16px;
+      text-align: center;
+
+      &-label {
+        padding: 16px 0 8px;
+      }
+
+      &-input {
+        width: 492px;
+        height: 48px;
+      }
+
+      &-textarea {
+        width: 492px;
+        height: 172px;
+        padding: 16px;
+      }
+
+      &-btn {
+        width: 164px;
+      }
+    }
+
+    .box-image {
+      text-align: center;
+
+      &__figure {
+        left: 195px;
+      }
+    }
+  }
+}

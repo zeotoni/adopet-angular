@@ -35,7 +35,7 @@
 
     .material-icons {
       position: absolute;
-      left: calc(100% - 15%);
+      left: 85%;
       top: 57px;
     }
 
@@ -49,6 +49,49 @@
       width: 148px;
       padding: 10px 0;
       margin: 40px auto 100px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+
+  .signup {
+
+    background: url(../../../assets/img/vetor2.svg) no-repeat right 0 top 145px;
+
+    &__logo {
+      padding: 90px 0 40px;
+      width: 251.59px;
+    }
+
+    &__titulo {
+      font-size: 18px;
+      padding: 0 0 40px;
+      width: 525px;
+      line-height: 26px;
+    }
+
+    &__label {
+      font-size: 18px;
+      padding: 24px 0 10px;
+    }
+
+    &__input {
+      width: 60%;
+
+      &:last-of-type {
+        margin-bottom: 40px;
+      }
+    }
+
+    .material-icons {
+      left: 75%;
+      top: 67px;
+    }
+
+    &__btn {
+      width: 164px;
+      margin: 0 auto 302px;
     }
   }
 }

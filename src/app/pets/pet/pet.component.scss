@@ -1,62 +1,72 @@
 @import '../../../assets/scss/base';
 
-.card {
-  background-color: $cinza-bg;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 196px;
-  margin: 16px 0;
-  justify-content: center;
-  gap: 16px;
+@media screen and (min-width: 0) {
+  .card {
+    background-color: $cinza-bg;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 196px;
+    margin: 16px 0;
+    justify-content: center;
+    gap: 16px;
 
 
-  &__img {
-    width: 148px;
-    height: 148px;
-  }
-
-  &__content{
-
-    color: $cinza-escuro;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    text-align: initial;
-
-    &-name {
-      color: $azul-principal;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 20px;
-      padding: 10px 0 8px;
+    &__img {
+      width: 148px;
+      height: 148px;
     }
 
-    &-adress {
-      padding-top: 30px;
-      display: flex;
-      flex-direction: column;
+    &__content{
+
+      color: $cinza-escuro;
       font-weight: 400;
-      font-size: 12px;
-      line-height: 16px;
-      color: $cinza-escuro;
-    }
+      font-size: 14px;
+      line-height: 20px;
+      text-align: initial;
 
-    &-link {
-      text-decoration: none;
-      color: $cinza-escuro;
-      padding-top: 7px;
-
-      & img {
-        margin-right: 5px;
-        width: 18px;
-        height: 18px;
-        vertical-align: middle;
+      &-name {
+        color: $azul-principal;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        padding: 10px 0 8px;
       }
 
-      & span {
-        font-size: 10px;
+      &-adress {
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: $cinza-escuro;
+      }
+
+      &-link {
+        text-decoration: none;
+        color: $cinza-escuro;
+        padding-top: 7px;
+
+        & img {
+          margin-right: 5px;
+          width: 18px;
+          height: 18px;
+          vertical-align: middle;
+        }
+
+        & span {
+          font-size: 10px;
+        }
       }
     }
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .card {
+    width: 344px;
+    margin: 0;
   }
 }

@@ -1,16 +1,44 @@
 @import '../../../assets/scss/base';
 
-.pets-list {
+@media screen and (min-width: 0) {
 
-  text-align: center;
+  .pets-list {
 
-  &__title {
-    color: $azul-principal;
-    padding: 40px 0 24px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    width: 226px;
-    margin: 0 auto;
+    text-align: center;
+
+    &__title {
+      color: $azul-principal;
+      padding: 40px 0 24px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+      width: 226px;
+      margin: 0 auto;
+    }
   }
 }
+
+@media screen and (min-width: 768px) {
+
+  .pets-list {
+
+    &__title {
+      padding: 120px 0 32px;
+      font-size: 18px;
+      width: 373px;
+    }
+
+    &__container {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 0 32px 32px;
+    }
+  }
+}
+

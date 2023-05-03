@@ -11,6 +11,7 @@
       font-weight: 400;
       font-size: 16px;
       line-height: 20px;
+      text-align: center;
     }
 
     &__form-section {
@@ -75,6 +76,43 @@
       width: 148px;
       padding: 10px 0;
       margin: 40px 0 24px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .message {
+
+    &__title {
+      padding: 120px 0 26px;
+      width: 524px;
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    &__form-section {
+      margin: 0 auto 75px;
+      width: 524px;
+    }
+
+    &__form {
+      padding: 16px 16px 32px;
+    }
+
+    &__label {
+      padding: 16px 0 8px;
+    }
+
+    &__input {
+      width: 492px;
+    }
+
+    &__textarea {
+      width: 492px;
+    }
+
+    &__btn {
+      width: 164px;
     }
   }
 }

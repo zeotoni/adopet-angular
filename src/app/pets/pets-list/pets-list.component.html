@@ -1,16 +1,18 @@
 <main class="pets-list">
   <h1 class="pets-list__title">Olá! Veja os amigos disponíveis para adoção!</h1>
-  <div *ngIf="pets$ | async as pets">
-    <div *ngFor="let pet of pets">
-      <app-pet
-      [img]="pet.img"
-      [alt]="pet.alt"
-      [name]="pet.petNome"
-      [age]="pet.petIade"
-      [size]="pet.petPorte"
-      [characterists]="pet.petCarac"
-      [adress]="pet.petAdress"
-      ></app-pet>
+  <section class="pets-list__container">
+    <div class="pets-list__list" *ngIf="pets$ | async as pets">
+      <div *ngFor="let pet of pets">
+        <app-pet
+        [img]="pet.img"
+        [alt]="pet.alt"
+        [name]="pet.petNome"
+        [age]="pet.petIade"
+        [size]="pet.petPorte"
+        [characterists]="pet.petCarac"
+        [adress]="pet.petAdress"
+        ></app-pet>
+      </div>
     </div>
-  </div>
+  </section>
 </main>
