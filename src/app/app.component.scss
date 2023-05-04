@@ -42,26 +42,14 @@
 
 @media screen and (min-width: 1280px) {
   .home {
-    background: url(../assets/img/vetor1.svg);
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: 352.11px;
-    background-color: $azul-principal
+    background-size: 560.97px;
   }
 
   .signin {
-    background: url(../assets/img/patas.svg), url(../assets/img/vetor1.svg);
-    background-repeat: no-repeat;
-    background-position: top right, top left;
-    background-size: 189.96px, 352.11px;
-    background-color: $branco-principal;
+    background-size: 189.96px, 560.97pxx;
   }
 
   .pets {
-    background: url(../assets/img/vetor1.svg);
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: 352.11px;
-    background-color: $branco-principal;
+    background-size: 560.97px;
   }
 }

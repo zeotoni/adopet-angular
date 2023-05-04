@@ -41,3 +41,14 @@
     }
   }
 }
+
+@media screen and (min-width: 768px) {
+  .header {
+
+    &__menu {
+      justify-content: space-between;
+      align-items: center;
+      padding: 64px 161.17px 36.14px;
+    }
+  }
+}

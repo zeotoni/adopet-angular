@@ -83,3 +83,32 @@
     }
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .home {
+
+    &__logo {
+      padding: 0 0 40px;
+      width: 260px;
+    }
+
+    &__title {
+      line-height: 48px;
+    }
+
+    &__subtitle {
+      width: 488px;
+      padding: 24px 0 32px;
+    }
+
+    &__btn {
+      width: 362px;
+    }
+
+    &__img {
+      width: 346px;
+      height: 431px;
+    }
+  }
+}
+
