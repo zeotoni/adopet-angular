@@ -46,7 +46,11 @@
   }
 
   .signin {
-    background-size: 189.96px, 560.97pxx;
+    background: url(../assets/img/patas-desktop.svg), url(../assets/img/vetor1.svg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-position: top right, top left;
+    background-size: 294px, 560.97px;
   }
 
   .pets {
