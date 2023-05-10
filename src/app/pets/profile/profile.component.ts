@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit{
 
   constructor(
     private builder: FormBuilder,
-    private service: UserService
+    private userService: UserService
   ) {
   }
 
@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit{
       image: this.preview
     }
 
-    this.service.updateUser(38, dados).subscribe(
+    this.userService.updateUser(38, dados).subscribe(
       () => {},err => console.log(err))
 
     this.msgSuccess = 'Dados salvos com sucesso!';
@@ -50,7 +50,7 @@ export class ProfileComponent implements OnInit{
 
   getProfileData() {
 
-    this.service.getProfileUser(38).subscribe(
+    this.userService.getProfileUser(38).subscribe(
       (res) => {
         this.preview = res.image;
 

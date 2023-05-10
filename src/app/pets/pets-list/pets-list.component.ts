@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, Renderer2 } from '@angular/core';
-import { PetsService } from '../pets.service';
-import { Observable } from 'rxjs';
 import { Pets } from '../pet/pet';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pets-list',
@@ -10,17 +9,17 @@ import { Pets } from '../pet/pet';
 })
 export class PetsListComponent implements OnInit{
 
-  @Input() pets: Pets = [];
-
-  pets$!: Observable<Pets>;
+  pets!: Pets;
 
   constructor(
     private render: Renderer2,
-    private service: PetsService
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.render.setStyle(document.body, 'background-color', '#FFF');
-    this.pets$ = this.service.getPetList();
+    this.activatedRoute.params.subscribe(() => {
+      this.pets = this.activatedRoute.snapshot.data['pets'];
+    })
   }
 }

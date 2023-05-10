@@ -1,7 +1,7 @@
 <main class="pets-list">
   <h1 class="pets-list__title">Olá! Veja os amigos disponíveis para adoção!</h1>
   <section class="pets-list__container">
-    <div class="pets-list__list" *ngIf="pets$ | async as pets">
+    <div class="pets-list__list">
       <div *ngFor="let pet of pets">
         <app-pet
         [img]="pet.img"
