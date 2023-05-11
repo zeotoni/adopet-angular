@@ -37,6 +37,10 @@
       position: absolute;
       left: 85%;
       top: 57px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     &__label {
@@ -79,7 +83,8 @@
     &__input {
       width: 60%;
 
-      &:last-of-type {
+      &-password:last-of-type {
+        position: relative;
         margin-bottom: 40px;
       }
     }
@@ -92,6 +97,37 @@
     &__btn {
       width: 164px;
       margin: 0 auto 302px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px){
+
+  .signup {
+
+    &__logo {
+      padding: 0 0 64px;
+      width: 251.59px;
+    }
+
+    &__titulo {
+      padding: 0 0 72px;
+    }
+
+    &__input {
+      width: 40%;
+
+      &-password {
+
+        & input{
+          width: 30%;
+        }
+      }
+    }
+
+    .material-icons {
+      left: 62%;
+      top: 67px;
     }
   }
 }
