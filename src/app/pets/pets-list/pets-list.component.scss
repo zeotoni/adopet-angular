@@ -42,3 +42,24 @@
   }
 }
 
+@media screen and (min-width: 1280px) {
+
+  .pets-list {
+
+    background: url(../../../assets/img/vetor2.svg) no-repeat ;
+    background-position: right 100px;
+    background-size: 134px;
+
+    &__title {
+      padding: 100px 0 40px;
+      width: 414px;
+    }
+
+    &__list {
+      grid-template-columns: 1fr 1fr 1fr;
+      margin: 0 32px 32px;
+    }
+  }
+}
+
+
