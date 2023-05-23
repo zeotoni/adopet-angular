@@ -16,7 +16,9 @@
               <span class="material-icons eye-open" (click)="toggleVisibility()">{{eye}}</span>
               <app-msg-warning *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched" text="Senha is required"></app-msg-warning>
           </div>
+
           <button class="signin__recuperar-senha">Esqueci minha senha</button>
+          <a class="signin__criar-conta" routerLink="/home/signup">Criar conta</a>
 
           <button [disabled]="loginForm.invalid" type="submit" class="btn signin__btn">Entrar</button>
   </form>

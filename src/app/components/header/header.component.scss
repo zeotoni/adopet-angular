@@ -42,13 +42,11 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280px) {
   .header {
 
     &__menu {
-      justify-content: space-between;
-      align-items: center;
-      padding: 64px 161.17px 36.14px;
+      padding: 64px 161.17px 37px;
     }
   }
 }

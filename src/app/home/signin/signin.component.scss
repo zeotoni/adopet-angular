@@ -35,9 +35,14 @@
 
     &__form-input-password {
       position: relative;
+
+      & input:not(:placeholder-shown) + .material-icons {
+        display: block;
+      }
     }
 
     .material-icons {
+      display: none;
       position: absolute;
       left: 85%;
       top: 57px;
@@ -55,14 +60,33 @@
       line-height: 24px;
       border: none;
       background-color: #FFFFFF;
-      display: block;
       margin: 0 auto;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    &__criar-conta {
+      color: #FC7071;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      text-decoration: none;
+      margin-left: 20px;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
     }
 
     &__btn{
       width: 148px;
       padding: 10px 0;
       margin: 0 auto 200px;
+      display: block;
     }
   }
 }
@@ -110,7 +134,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1280px) {
 
   .signin {
 

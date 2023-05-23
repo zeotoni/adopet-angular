@@ -3,6 +3,7 @@
       <img src="assets/img/logo-azul.svg" alt="Logo da adopet" class="signup__logo">
   </div>
   <h3 class="signup__titulo">Ainda não tem cadastro?<br>Então, antes de buscar seu melhor amigo, precisamos de alguns dados:</h3>
+  <p class="signup__link-login">Já possui uma conta? <a routerLink="/home/signin">Faça login</a></p>
   <form #form="ngForm" [formGroup]="signupForm" (submit)="signup()" class="signup__form">
 
       <div>

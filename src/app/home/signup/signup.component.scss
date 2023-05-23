@@ -19,7 +19,22 @@
       line-height: 21px;
       font-size: 16px;
       color: $azul-principal;
-      padding: 16px 0 45px;
+      padding: 16px 0 25px;
+    }
+
+    &__link-login {
+      color: $azul-principal;
+      padding-bottom: 15px;
+
+      & a {
+        color: $vermelho-principal;
+        text-decoration: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
     }
 
     &__input {
@@ -29,11 +44,16 @@
 
       &-password {
         position: relative;
+
+        & input:not(:placeholder-shown) + .material-icons {
+          display: block;
+        }
       }
 
     }
 
     .material-icons {
+      display: none;
       position: absolute;
       left: 85%;
       top: 57px;
@@ -101,7 +121,7 @@
   }
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1280px){
 
   .signup {
 

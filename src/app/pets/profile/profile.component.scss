@@ -173,3 +173,36 @@
     }
   }
 }
+
+@media screen and (min-width: 1280px){
+
+  .profile {
+
+    background: url(../../../assets/img/vetor2.svg) no-repeat ;
+    background-position: right 100px;
+    background-size: 134px;
+
+    &__title {
+      width: 552px;
+      padding: 60px 0 32px;
+    }
+
+    &__container {
+      margin: 0 auto 40px;
+      width: 552px;
+    }
+
+    &__form {
+      padding: 16px 32px;
+    }
+
+    .box-image {
+      text-align: center;
+
+      &__figure {
+        left: 195px;
+      }
+    }
+  }
+}
+
