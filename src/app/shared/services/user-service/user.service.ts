@@ -3,7 +3,8 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { User } from "./user";
 
-const API = 'https://cheddar-orange-origami.glitch.me/usuarios';
+// const API = 'https://cheddar-orange-origami.glitch.me/usuarios';
+const API = 'http://localhost:3000/users'
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +19,11 @@ export class UserService {
     return this.http.post<User>(API, user)
   }
 
-  updateUser(userId: number, body: any): Observable<User> {
-    return this.http.patch<User>(API + `/${userId}`, body)
+  updateUser(userId: string, body: any): Observable<User> {
+    return this.http.put<User>(API + `/${userId}`, body)
   }
 
-  getProfileUser(userId: number): Observable<User> {
+  getProfileUser(userId: string): Observable<User> {
     return this.http.get<User>(API + `/${userId}`);
   }
 

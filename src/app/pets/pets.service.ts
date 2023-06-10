@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Pets } from './pet/pet';
+import { Pet, Pets } from './pet/pet';
 
-const API = 'https://cheddar-orange-origami.glitch.me/cardPets';
+const API = "http://localhost:3000/pets"
 
 @Injectable({
   providedIn: 'root'

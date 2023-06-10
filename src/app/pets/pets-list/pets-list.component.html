@@ -4,13 +4,13 @@
     <div class="pets-list__list">
       <div *ngFor="let pet of pets">
         <app-pet
-        [img]="pet.img"
-        [alt]="pet.alt"
-        [name]="pet.petNome"
-        [age]="pet.petIade"
-        [size]="pet.petPorte"
-        [characterists]="pet.petCarac"
-        [adress]="pet.petAdress"
+        [img]="pet.image"
+        [alt]="pet.imgDescription"
+        [name]="pet.name"
+        [age]="pet.age"
+        [size]="pet.port"
+        [characterists]="pet.characteristics"
+        [adress]="pet.adress"
         ></app-pet>
       </div>
     </div>

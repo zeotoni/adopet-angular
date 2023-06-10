@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit{
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email], [this.emailValidator.emailExists()]],
+      email: ['', [Validators.required, Validators.email]],
       name: ['', [Validators.required, Validators.minLength(10)]],
       password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,16}$/)]],
       confirmPassword: ['', [Validators.required]]

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
+import { User } from 'src/app/shared/services/user-service/user';
 
 @Component({
   selector: 'app-signin',
@@ -35,9 +36,10 @@ export class SigninComponent implements OnInit{
 
     this.authService.authenticate().subscribe(
       (res) => {
-        res.forEach((el: any) => {
-          if(el.email == email && el.password == password) {
-            this.router.navigate(['pets'])
+        res.forEach((user: User) => {
+
+          if(user.email == email && user.password == password) {
+            this.router.navigate([`/pets/${user._id}`])
           }
 
         });

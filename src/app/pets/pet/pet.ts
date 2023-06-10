@@ -1,12 +1,11 @@
 export interface Pet {
-  id: number;
-  petNome: string;
-  petIade: string;
-  alt: string;
-  img: string;
-  petPorte: string;
-  petCarac: string;
-  petAdress: string;
+  name: string;
+  age: string;
+  imgDescription: string;
+  image: string;
+  port: string;
+  characteristics: string;
+  adress: string;
 }
 
 

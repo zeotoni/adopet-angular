@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Pets } from '../pet/pet';
 import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-pets-list',

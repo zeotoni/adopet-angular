@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/shared/services/user-service/user.service';
 import { Observable, Subscriber } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -14,15 +15,23 @@ export class ProfileComponent implements OnInit{
   msgSuccess: string = '';
   image!: File;
   preview: any;
+  userId!: string;
 
   constructor(
     private builder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private route: ActivatedRoute
   ) {
   }
 
   ngOnInit(): void {
-    this.getProfileData();
+
+    this.route.params.subscribe((params) => {
+      this.userId = params['id'];
+      this.getProfileData(params['id']);
+
+    })
+
     this.profileForm = this.builder.group({
       name: ['', [Validators.required]],
       phone: ['', [Validators.required, Validators.pattern(/^(?:(?:\+|00)?(55)\s?)?(?:(?:\(?[1-9][0-9]\)?)?\s?)?(?:((?:9\d|[2-9])\d{3})-?(\d{4}))$/)]],
@@ -34,7 +43,7 @@ export class ProfileComponent implements OnInit{
 
   sendProfileData() {
 
-    const dados = {
+    const data = {
       name: this.profileForm.get('name')?.value,
       phone: this.profileForm.get('phone')?.value,
       city: this.profileForm.get('city')?.value,
@@ -42,23 +51,24 @@ export class ProfileComponent implements OnInit{
       image: this.preview
     }
 
-    this.userService.updateUser(38, dados).subscribe(
+    this.userService.updateUser(this.userId, data).subscribe(
       () => {},err => console.log(err))
 
     this.msgSuccess = 'Dados salvos com sucesso!';
   }
 
-  getProfileData() {
+  getProfileData(id: string) {
 
-    this.userService.getProfileUser(38).subscribe(
+    this.userService.getProfileUser(id).subscribe(
       (res) => {
+
         this.preview = res.image;
 
         this.profileForm.setValue({
-          name: res.name,
-          phone: res.phone,
-          city: res.city,
-          about: res.about,
+          name: res.name ?? '',
+          phone: res.phone ?? '',
+          city: res.city ?? '',
+          about: res.about ?? '',
           image: ''
         })
 
