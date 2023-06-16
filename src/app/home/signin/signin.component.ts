@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 import { AuthService } from 'src/app/auth/auth.service';
+import { TokenService } from 'src/app/shared/services/token/token.service';
 import { User } from 'src/app/shared/services/user-service/user';
 
 @Component({
@@ -18,7 +20,8 @@ export class SigninComponent implements OnInit{
   constructor(
     private authService: AuthService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private tokenService: TokenService
   ) {
   }
 
@@ -34,17 +37,27 @@ export class SigninComponent implements OnInit{
     const email = this.loginForm.get('email')?.value;
     const password = this.loginForm.get('password')?.value;
 
-    this.authService.authenticate().subscribe(
-      (res) => {
-        res.forEach((user: User) => {
 
-          if(user.email == email && user.password == password) {
-            this.router.navigate([`/pets/${user._id}`])
-          }
+    this.authService
+      .authenticate(email, password)
+      .subscribe(
+        (res: any) => {
+          this.tokenService.setToken(res.token)
+          this.router.navigate([`/pets/`, this.decodAndNotify()])
 
-        });
-      },
-      err => console.log(err));
+          // this.decodAndNotify();
+        },
+        err => {
+          console.log(err.message)
+    })
+
+  }
+
+  private decodAndNotify() {
+    const token: any = this.tokenService.getToken();
+    const user: any = jwtDecode(token);
+
+    return user.id;
   }
 
   toggleVisibility() {

@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { User } from "./user";
 
 // const API = 'https://cheddar-orange-origami.glitch.me/usuarios';
-const API = 'http://localhost:3000/users'
+const API = 'http://localhost:3000'
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class UserService {
   ) { }
 
   registerUser(user: User): Observable<User> {
-    return this.http.post<User>(API, user)
+    return this.http.post<User>(`${API}/auth/signup`, user)
   }
 
   updateUser(userId: string, body: any): Observable<User> {
@@ -24,7 +24,7 @@ export class UserService {
   }
 
   getProfileUser(userId: string): Observable<User> {
-    return this.http.get<User>(API + `/${userId}`);
+    return this.http.get<User>(`${API}/users/${userId}`);
   }
 
   emailExistsCheck(email: string) {
