@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from 'src/app/shared/services/user-service/user.service';
 import { Observable, Subscriber } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+
+import { UserService } from 'src/app/shared/services/user-service/user.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -19,18 +20,15 @@ export class ProfileComponent implements OnInit{
 
   constructor(
     private builder: FormBuilder,
-    private userService: UserService,
-    private route: ActivatedRoute
+    private userService: UserService
   ) {
   }
 
   ngOnInit(): void {
 
-    this.route.params.subscribe((params) => {
-      this.userId = params['id'];
-      this.getProfileData(params['id']);
+    this.userId = this.userService.getUserId();
 
-    })
+    this.getProfileData(this.userId);
 
     this.profileForm = this.builder.group({
       name: ['', [Validators.required]],
@@ -40,6 +38,7 @@ export class ProfileComponent implements OnInit{
       image: [this.preview]
     })
   }
+
 
   sendProfileData() {
 

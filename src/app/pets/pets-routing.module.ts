@@ -4,6 +4,7 @@ import { PetsListComponent } from "./pets-list/pets-list.component";
 import { MessageComponent } from "./message/message.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { PetsListResolver } from "./pets-list/pets-list.resolver";
+import { AUthGuard } from "../auth/auth.guard";
 
 const routes: Routes = [
   {

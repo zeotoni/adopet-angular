@@ -17,6 +17,8 @@
               <app-msg-warning *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched" text="Senha is required"></app-msg-warning>
           </div>
 
+          <app-msg-warning text="{{msgErrorLogin}}"></app-msg-warning>
+
           <button class="signin__recuperar-senha">Esqueci minha senha</button>
           <a class="signin__criar-conta" routerLink="/home/signup">Criar conta</a>
 

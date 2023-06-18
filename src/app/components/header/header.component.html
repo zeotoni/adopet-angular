@@ -5,10 +5,12 @@
       <a class="header__icone-home" routerLink="home">
         <img src="assets/img/Casa.png" alt="icone de casa">
       </a>
-      <a class="header__icone-msg">
+      <a class="header__icone-msg" (click)="goMessage()">
         <img src="assets/img/Mensagens.svg" alt="icone de carta">
       </a>
     </div>
-    <img class="header__icone-profile" (click)="goProfile()" [src]="src" [alt]="description" width="40px">
+    <img class="header__icone-profile" routerLink="pets/profile" [src]="src" [alt]="description" width="40px">
+    <a class="btn__logout" (click)="logOut()">{{logOutMessage}} <span class="material-icons icon-logout">{{icon}}</span>
+    </a>
   </div>
 </header>

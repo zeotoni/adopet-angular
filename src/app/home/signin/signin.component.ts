@@ -16,6 +16,7 @@ export class SigninComponent implements OnInit{
   loginForm!: FormGroup;
   eye: string = 'visibility';
   inputType: string = 'password';
+  msgErrorLogin!: string;
 
   constructor(
     private authService: AuthService,
@@ -43,21 +44,12 @@ export class SigninComponent implements OnInit{
       .subscribe(
         (res: any) => {
           this.tokenService.setToken(res.token)
-          this.router.navigate([`/pets/`, this.decodAndNotify()])
-
-          // this.decodAndNotify();
+          this.router.navigate([`pets`])
         },
-        err => {
-          console.log(err.message)
+        error => {
+          this.msgErrorLogin = error.error.message;
     })
 
-  }
-
-  private decodAndNotify() {
-    const token: any = this.tokenService.getToken();
-    const user: any = jwtDecode(token);
-
-    return user.id;
   }
 
   toggleVisibility() {

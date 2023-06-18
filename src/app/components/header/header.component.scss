@@ -1,3 +1,5 @@
+@import 'src/assets/scss/_base.scss';
+
 @media screen and (min-width: 0) {
   .header {
 
@@ -19,6 +21,25 @@
 
     &__icone-profile {
       border-radius: 25px;
+    }
+
+    .btn__logout {
+      position: absolute;
+      top: 85px;
+      right: 35px;
+      display: flex;
+      gap: 8px;
+      font-size: 18px;
+      color: $vermelho-principal;
+      border-bottom: 1px solid $vermelho-principal;
+
+    }
+
+    .icon-logout {
+      color: $vermelho-principal;
+      font-size: 18px;
+      align-self: center;
+
     }
   }
 }
@@ -43,6 +64,11 @@
       display: flex;
       align-items: end;
     }
+
+    .btn__logout {
+      top: 100px;
+      right: 33px;
+    }
   }
 }
 
@@ -51,6 +77,14 @@
 
     &__menu {
       padding: 64px 161.17px 37px;
+    }
+
+    .btn__logout {
+      right: 145px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
