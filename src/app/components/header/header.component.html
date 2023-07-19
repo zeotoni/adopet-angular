@@ -9,8 +9,14 @@
         <img src="assets/img/Mensagens.svg" alt="icone de carta">
       </a>
     </div>
-    <img class="header__icone-profile" routerLink="pets/profile" [src]="src" [alt]="description" width="40px">
-    <a class="btn__logout" (click)="logOut()">{{logOutMessage}} <span class="material-icons icon-logout">{{icon}}</span>
-    </a>
+    <div *ngIf="onPetsPage; else login">
+      <div>
+        <img class="header__icone-profile" routerLink="pets/profile" [src]="userImage" [alt]="" width="40px">
+        <a class="btn__logout" (click)="logOut()">Logout <span class="material-icons icon-logout">logout</span></a>
+      </div>
+    </div>
+    <ng-template #login>
+      <a *ngIf="ppp" routerLink="home/signin">Login</a>
+    </ng-template>
   </div>
 </header>

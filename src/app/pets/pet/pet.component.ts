@@ -1,4 +1,6 @@
+import { UserService } from 'src/app/shared/services/user-service/user.service';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pet',
@@ -15,4 +17,15 @@ export class PetComponent {
   @Input() characterists = '';
   @Input() adress = '';
 
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) {}
+
+  sendMessage() {
+
+    if(this.userService.isLogged()) {
+      this.router.navigate(['pets/message'])
+    }
+  }
 }

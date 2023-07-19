@@ -1,10 +1,10 @@
+import { UserService } from 'src/app/shared/services/user-service/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import jwtDecode from 'jwt-decode';
 import { AuthService } from 'src/app/auth/auth.service';
 import { TokenService } from 'src/app/shared/services/token/token.service';
-import { User } from 'src/app/shared/services/user-service/user';
+
 
 @Component({
   selector: 'app-signin',
@@ -22,7 +22,8 @@ export class SigninComponent implements OnInit{
     private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private userService: UserService
   ) {
   }
 
@@ -43,8 +44,8 @@ export class SigninComponent implements OnInit{
       .authenticate(email, password)
       .subscribe(
         (res: any) => {
-          this.tokenService.setToken(res.token)
-          this.router.navigate([`pets`])
+          this.tokenService.setToken(res.token);
+          this.router.navigate([`pets`]);
         },
         error => {
           this.msgErrorLogin = error.error.message;

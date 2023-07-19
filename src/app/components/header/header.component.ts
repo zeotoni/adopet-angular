@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, Component, OnChanges, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { UserService } from 'src/app/shared/services/user-service/user.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { TokenService } from 'src/app/shared/services/token/token.service';
+import { Observable, Subscription } from 'rxjs';
+import { User } from 'src/app/shared/services/user-service/user';
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-header',
@@ -11,11 +14,12 @@ import { TokenService } from 'src/app/shared/services/token/token.service';
 })
 export class HeaderComponent implements OnInit{
 
-  src: string = '';
-  description: string = '';
-  logOutMessage: string = '';
-  icon: string = '';
 
+  user!: User;
+  subUser!: Subscription;
+  onPetsPage: boolean = false;
+  ppp!: boolean;
+  userImage: string = 'assets/img/perfil.png'
 
   constructor(
     private location: Location,
@@ -24,27 +28,29 @@ export class HeaderComponent implements OnInit{
     private tokenService: TokenService
   ) {}
 
-  ngOnInit(): void {
 
-    this.location.onUrlChange(x => {
-      if(x.startsWith('/pets')) {
-       this.userService.getProfileUser(this.userService.getUserId()).subscribe((user) => {
-          this.src = user.image;
-          this.description = 'Perfil do usuário';
-          this.logOutMessage = 'Sair';
-          this.icon = 'logout';
-       })
+  ngOnInit(): void {
+    this.location.onUrlChange(url => {
+      if(url.startsWith('/pets') && this.tokenService.hasToken()) {
+        this.onPetsPage = true;
+        this.user = jwtDecode(this.tokenService.getToken()!);
+        this.userImage = this.user.image;
+
+
       } else {
-        this.src = '';
-        this.description = '';
+        this.onPetsPage = false;
+        this.ppp = true
+      }
+
+      if(url.startsWith('/home')) {
+        this.ppp = false;
       }
     })
+
   }
 
   logOut(): void {
-    this.tokenService.removeToken();
-    this.icon = '';
-    this.logOutMessage = '';
+    this.userService.logOut();
     this.router.navigate(['']);
   }
 

@@ -27,7 +27,6 @@ export class ProfileComponent implements OnInit{
   ngOnInit(): void {
 
     this.userId = this.userService.getUserId();
-
     this.getProfileData(this.userId);
 
     this.profileForm = this.builder.group({
