@@ -1,9 +1,8 @@
-import { AfterContentChecked, AfterViewInit, Component, OnChanges, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { UserService } from 'src/app/shared/services/user-service/user.service';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { TokenService } from 'src/app/shared/services/token/token.service';
-import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/shared/services/user-service/user';
 import jwtDecode from 'jwt-decode';
 
@@ -16,9 +15,9 @@ export class HeaderComponent implements OnInit{
 
 
   user!: User;
-  subUser!: Subscription;
-  onPetsPage: boolean = false;
-  ppp!: boolean;
+  showUser: boolean = false;
+  showLogin!: boolean;
+  menu!: boolean;
   userImage: string = 'assets/img/perfil.png'
 
   constructor(
@@ -30,20 +29,21 @@ export class HeaderComponent implements OnInit{
 
 
   ngOnInit(): void {
+
     this.location.onUrlChange(url => {
       if(url.startsWith('/pets') && this.tokenService.hasToken()) {
-        this.onPetsPage = true;
+        this.showUser = true;
+        this.menu = false;
         this.user = jwtDecode(this.tokenService.getToken()!);
         this.userImage = this.user.image;
 
-
       } else {
-        this.onPetsPage = false;
-        this.ppp = true
+        this.showUser = false;
+        this.showLogin = true
       }
 
       if(url.startsWith('/home')) {
-        this.ppp = false;
+        this.showLogin = false;
       }
     })
 
@@ -56,8 +56,12 @@ export class HeaderComponent implements OnInit{
 
   goMessage(): void {
     if(this.userService.isLogged()) {
-      this.router.navigate(['pets/message'])
+      this.router.navigate(['pets/message']);
     }
+  }
+
+  showMenu() {
+    this.menu = !this.menu;
   }
 
 }
