@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Observable, tap } from 'rxjs';
-import { User } from '../shared/services/user-service/user';
 
-// const API  = 'https://cheddar-orange-origami.glitch.me/usuarios';
-const API = 'http://localhost:3000'
+
+const API = 'https://adopet-api.onrender.com';
 
 @Injectable({
   providedIn: 'root'

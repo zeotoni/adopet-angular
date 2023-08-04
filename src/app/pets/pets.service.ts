@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Pet, Pets } from './pet/pet';
 
-const API = "http://localhost:3000/pets"
+const API = "https://adopet-api.onrender.com/pets"
 
 @Injectable({
   providedIn: 'root'

@@ -6,7 +6,7 @@ import { TokenService } from "../token/token.service";
 import jwtDecode from "jwt-decode";
 
 
-const API = 'http://localhost:3000'
+const API = 'https://adopet-api.onrender.com';
 
 @Injectable({
   providedIn: 'root'
@@ -45,9 +45,5 @@ export class UserService {
 
   isLogged(): boolean {
     return this.tokenService.hasToken();
-  }
-
-  emailExistsCheck(email: string) {
-    return this.http.get(API + `?email=${email}`);
   }
 }

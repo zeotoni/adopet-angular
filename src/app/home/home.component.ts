@@ -5,14 +5,4 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
-
-  constructor(
-    private renderer: Renderer2
-  ) {
-  }
-
-  ngOnInit(): void {
-    // this.renderer.setStyle(document.body, 'background-color', '#3772FF')
-  }
-}
+export class HomeComponent {}
