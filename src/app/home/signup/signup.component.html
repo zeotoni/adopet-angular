@@ -11,8 +11,7 @@
           <input formControlName="email" class="signup__input input" type="email" placeholder="Escolha seu melhor email">
           <app-msg-warning *ngIf="signupForm.get('email')?.errors?.['required'] && (form.submitted || signupForm.get('email')?.touched)" text="Email is required"></app-msg-warning>
           <app-msg-warning *ngIf="signupForm.get('email')?.errors?.['email'] && (form.submitted || signupForm.get('email')?.touched)" text="Must to be a valid email format"></app-msg-warning>
-          <app-msg-warning *ngIf="signupForm.get('email')?.errors?.['emailIsTaken'] && (form.submitted || signupForm.get('email')?.touched)" text="Email is already taken"></app-msg-warning>
-          <small *ngIf="signupForm.get('email')?.valid" class="msg-success">Email available</small>
+          <app-msg-warning text="{{emailtakenMessage}}"></app-msg-warning>
       </div>
 
       <div>

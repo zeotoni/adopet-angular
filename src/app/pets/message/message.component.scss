@@ -54,6 +54,14 @@
         font-size: 14px;
         line-height: 24px;
       }
+
+      &:focus {
+        outline: 0;
+      }
+
+      &.ng-invalid.ng-touched {
+        border: 2px solid $vermelho-principal;
+      }
     }
 
     &__textarea {
@@ -69,6 +77,14 @@
 
       &::placeholder {
         text-align: initial;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+      &.ng-invalid.ng-touched {
+        border: 2px solid $vermelho-principal;
       }
     }
 

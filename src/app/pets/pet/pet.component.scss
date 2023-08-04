@@ -48,6 +48,10 @@
         color: $cinza-escuro;
         padding-top: 7px;
 
+        &:hover {
+          cursor: pointer;
+        }
+
         & img {
           margin-right: 5px;
           width: 18px;

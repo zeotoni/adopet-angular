@@ -25,7 +25,9 @@ export class PetComponent {
   sendMessage() {
 
     if(this.userService.isLogged()) {
-      this.router.navigate(['pets/message'])
+      this.router.navigate(['pets/message']);
+    } else {
+      this.router.navigate(['home/signin']);
     }
   }
 }

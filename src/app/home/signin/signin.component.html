@@ -1,27 +1,26 @@
 <main class="signin">
   <div class="signin__container-logo">
-      <img src="assets/img/logo-azul.svg" alt="Logo da adopet" class="signin__logo">
+    <img src="assets/img/logo-azul.svg" alt="Logo da adopet" class="signin__logo">
   </div>
-  <h3 class="signin__titulo">Já tem conta? Faça seu login:</h3>
-  <form [formGroup]="loginForm" class="signin__form" (ngSubmit)="login()">
-          <div>
-              <label class="signin__label label" for="email">Email</label>
-              <input formControlName="email" class="signin__input input" type="email" placeholder="Insira seu email" required>
-              <app-msg-warning *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched" text="Email is required"></app-msg-warning>
-              <app-msg-warning *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched" text="Must to be a valid email"></app-msg-warning>
-          </div>
-          <div class="signin__form-input-password">
-              <label class="signin__label label" for="senha">Senha</label>
-              <input formControlName="password" class="signin__input input" [type]="inputType" placeholder="Insira sua senha" required>
-              <span class="material-icons eye-open" (click)="toggleVisibility()">{{eye}}</span>
-              <app-msg-warning *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched" text="Senha is required"></app-msg-warning>
-          </div>
+  <h3 class="signin__title">Já tem conta? Faça seu login:</h3>
+  <p class="signin__btn-signup">Ainda não possui cadastro?<a routerLink="/home/signup"> Criar conta</a></p>
 
-          <app-msg-warning text="{{msgErrorLogin}}"></app-msg-warning>
+  <form #form="ngForm" [formGroup]="loginForm" class="signin__form" (ngSubmit)="login()">
+    <div>
+        <label class="signin__label label" for="email">Email</label>
+        <input formControlName="email" class="signin__input input" type="email" placeholder="Insira seu email" required>
+        <app-msg-warning *ngIf="loginForm.get('email')?.errors?.['required'] && (form.submitted || loginForm.get('email')?.touched)" text="Email is required"></app-msg-warning>
+        <app-msg-warning *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched" text="Must to be a valid email"></app-msg-warning>
+    </div>
+    <div class="signin__form-input-password">
+        <label class="signin__label label" for="senha">Senha</label>
+        <input formControlName="password" class="signin__input input" [type]="inputType" placeholder="Insira sua senha" required>
+        <span class="material-icons eye-open" (click)="toggleVisibility()">{{eye}}</span>
+        <app-msg-warning *ngIf="loginForm.get('password')?.errors?.['required'] && (form.submitted || loginForm.get('password')?.touched)" text="Senha is required"></app-msg-warning>
+    </div>
 
-          <button class="signin__recuperar-senha">Esqueci minha senha</button>
-          <a class="signin__criar-conta" routerLink="/home/signup">Criar conta</a>
+    <app-msg-warning text="{{msgErrorLogin}}"></app-msg-warning>
 
-          <button [disabled]="loginForm.invalid" type="submit" class="btn signin__btn">Entrar</button>
+    <button [disabled]="loginForm.invalid" type="submit" class="btn signin__btn">Entrar</button>
   </form>
 </main>

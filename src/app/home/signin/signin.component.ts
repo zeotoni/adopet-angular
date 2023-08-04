@@ -23,7 +23,6 @@ export class SigninComponent implements OnInit{
     private router: Router,
     private formBuilder: FormBuilder,
     private tokenService: TokenService,
-    private userService: UserService
   ) {
   }
 
@@ -35,10 +34,8 @@ export class SigninComponent implements OnInit{
   }
 
   login() {
-
     const email = this.loginForm.get('email')?.value;
     const password = this.loginForm.get('password')?.value;
-
 
     this.authService
       .authenticate(email, password)
@@ -48,7 +45,9 @@ export class SigninComponent implements OnInit{
           this.router.navigate([`pets`]);
         },
         error => {
-          this.msgErrorLogin = error.error.message;
+          console.log(error.error.message[1]);
+
+          // this.msgErrorLogin = error.error.message;
     })
 
   }

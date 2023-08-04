@@ -6,19 +6,19 @@
     text-align: center;
     background: url(../../../assets/img/vetor2-login.png) no-repeat left 0 top 217px;
     background-size: 84.03px 415px;
-
+    height: 120vh;
 
     &__logo {
       padding: 40px 0;
       width: 142.54px;
     }
 
-    &__titulo {
+    &__title {
       font-weight: 400;
       line-height: 21px;
       font-size: 16px;
       color: $azul-principal;
-      padding: 16px 0 45px 0;
+      padding: 16px 0 0;
     }
 
     &__label {
@@ -31,6 +31,14 @@
       width: 90%;
       height: 40px;
       padding-left: 10px;
+
+      &:focus {
+        outline: 0;
+      }
+
+      &.ng-invalid.ng-touched {
+        border: 2px solid $vermelho-principal;
+      }
     }
 
     &__form-input-password {
@@ -52,29 +60,21 @@
       }
     }
 
-    &__recuperar-senha {
-      padding: 20px 0;
-      color: #FC7071;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 24px;
-      border: none;
-      background-color: #FFFFFF;
-      margin: 0 auto;
 
-      &:hover {
-        cursor: pointer;
-        text-decoration: underline;
-      }
-    }
-
-    &__criar-conta {
-      color: #FC7071;
+    &__btn-signup {
       font-weight: 400;
       font-size: 14px;
       line-height: 24px;
       text-decoration: none;
-      margin-left: 20px;
+      color: $azul-principal;
+      padding: 20px 0 45px;
+      display: inline-block;
+
+      a {
+        color: $vermelho-principal;
+        text-decoration: none;
+      }
+
 
       &:hover {
         cursor: pointer;
@@ -85,7 +85,7 @@
     &__btn{
       width: 148px;
       padding: 10px 0;
-      margin: 0 auto 200px;
+      margin: 20px auto;
       display: block;
     }
   }
@@ -95,16 +95,16 @@
 
   .signin {
 
-    background: url(../../../assets/img/vetor2.svg) no-repeat right 0 top 145px;
+    background: url(../../../assets/img/vetor2.svg) no-repeat right 0 top 120px;
+
 
     &__logo {
       padding: 90px 0 40px;
       width: 251.59px;
     }
 
-    &__titulo {
+    &__title {
       font-size: 18px;
-      padding: 0 0 30px;
     }
 
     &__label {
@@ -122,14 +122,8 @@
       top: 67px;
     }
 
-    &__recuperar-senha {
-      padding: 35px 0;
-      line-height: 37px;
-    }
-
     &__btn{
       width: 164px;
-      margin: 0 auto 302px;
     }
   }
 }
@@ -141,10 +135,6 @@
     &__logo {
       padding: 0 0 64px;
       width: 251.59px;
-    }
-
-    &__titulo {
-      padding: 0 0 72px;
     }
 
     &__input {

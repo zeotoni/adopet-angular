@@ -13,19 +13,14 @@ const API = 'http://localhost:3000'
 })
 export class UserService {
 
-  // private userSubject = new BehaviorSubject<User>(null!);
 
   constructor(
     private http: HttpClient,
     private tokenService: TokenService
-  ) {
-    // if(tokenService.hasToken()) {
-    //   this.decodeJwt();
-    // }
-  }
+  ) {}
 
   registerUser(user: User): Observable<User> {
-    return this.http.post<User>(`${API}/auth/signup`, user)
+    return this.http.post<User>(`${API}/users`, user)
   }
 
   updateUser(userId: string, body: any): Observable<User> {
@@ -44,27 +39,9 @@ export class UserService {
     return id;
   }
 
-  // private decodeJwt() {
-  //   const token: any = this.tokenService.getToken();
-  //   const user: any = jwtDecode(token) as User;
-
-  //   this.userSubject.next(user);
-  // }
-
-  // returnUser() {
-  //   return this.userSubject.asObservable();
-  // }
-
   logOut() {
     this.tokenService.removeToken();
-    // this.userSubject.next(null!)
   }
-  // getUserImg(): string {
-  //   const token: any = this.tokenService.getToken();
-  //   const user: any = jwtDecode(token);
-
-  //   return user.image;
-  // }
 
   isLogged(): boolean {
     return this.tokenService.hasToken();

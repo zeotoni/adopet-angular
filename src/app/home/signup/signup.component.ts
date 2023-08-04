@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { confirmPasswordValidator } from './confirm-password.validator';
 import { User } from '../../shared/services/user-service/user';
 import { Router } from '@angular/router';
-import { EmailValidatorService } from './email-validator.service';
 import { UserService } from 'src/app/shared/services/user-service/user.service';
 
 @Component({
@@ -18,12 +17,13 @@ export class SignupComponent implements OnInit{
   eyeConfirm: string = 'visibility';
   inputType: string = 'password';
   inputConfirm: string = 'password';
+  emailtakenMessage!: string;
+
 
   constructor(
     private formBuilder: FormBuilder,
     private service: UserService,
     private route: Router,
-    private emailValidator: EmailValidatorService
   ) {
   }
 
@@ -33,11 +33,7 @@ export class SignupComponent implements OnInit{
       name: ['', [Validators.required, Validators.minLength(10)]],
       password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,16}$/)]],
       confirmPassword: ['', [Validators.required]]
-    },
-    {
-      validator: [confirmPasswordValidator]
-    }
-    )
+    })
   }
 
   signup() {
@@ -47,7 +43,13 @@ export class SignupComponent implements OnInit{
         .subscribe(() => {
           this.route.navigate(['/signin'])
         },
-        err => console.log(err));
+        error => {
+          if(error.status === 409) {
+            this.emailtakenMessage = error.error.message;
+          } else {
+            throw new Error;
+          }
+        });
     }
   }
 

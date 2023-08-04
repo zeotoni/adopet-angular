@@ -42,6 +42,14 @@
       height: 40px;
       padding-left: 10px;
 
+      &:focus {
+        outline: 0;
+      }
+
+      &.ng-invalid.ng-touched {
+        border: 2px solid $vermelho-principal;
+      }
+
       &-password {
         position: relative;
 
@@ -116,7 +124,6 @@
 
     &__btn {
       width: 164px;
-      margin: 0 auto 302px;
     }
   }
 }
