@@ -9,9 +9,9 @@
         <img src="assets/img/Mensagens.svg" alt="icone de carta">
       </a>
     </div>
-    <div *ngIf="showUser; else login">
+    <div *ngIf="showUserInfo; else login">
       <div>
-        <img class="header__icone-profile" (click)="showMenu()" [src]="userImage" alt="foto de perfil do usuario" width="40px" height="40px">
+        <img class="header__icone-profile" [src]="userImage" (click)="showMenu()" alt="foto de perfil do usuario" width="40px" height="40px">
         <div class="menu__profile" *ngIf="menu">
           <a class="menu__profile-profile" routerLink="pets/profile">Perfil <span class="material-icons">account_circle</span></a>
           <a class="menu__profile-logOut" (click)="logOut()">Logout <span class="material-icons">logout</span></a>
@@ -19,7 +19,7 @@
       </div>
     </div>
     <ng-template #login>
-      <a class="btn login__btn" *ngIf="showLogin" routerLink="home/signin">Login</a>
+      <a class="btn login__btn" *ngIf="showLoginBtn" routerLink="home/signin">Login</a>
     </ng-template>
   </div>
 </header>

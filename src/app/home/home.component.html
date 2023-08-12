@@ -1,11 +1,15 @@
 <main class="home">
+  <!-- <div class="home__loader-container">
+  </div> -->
   <div class="home__container-logo">
     <img src=".../../assets/img/Logo-inicio.svg" alt="Logo da adopet" class="home__logo">
   </div>
   <h1 class="home__title">Boas-vindas!</h1>
   <p class="home__subtitle">Que tal mudar sua vida adotando seu novo melhor amigo? Vem com a gente!</p>
   <section class="home__container-btn">
-      <a routerLink="/pets" class="btn home__btn">Ver Pets</a>
+      <a routerLink="/pets" class="btn home__btn">
+        <app-spinner-loader></app-spinner-loader>
+        Ver Pets</a>
       <a routerLink="signin" class="btn home__btn">Já tenho uma conta</a>
       <a routerLink="signup" class="btn home__btn">Quero me cadastrar</a>
   </section>

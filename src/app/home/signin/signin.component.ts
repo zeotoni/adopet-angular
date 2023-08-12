@@ -48,8 +48,8 @@ export class SigninComponent implements OnInit{
           console.log(error.error.message[1]);
 
           // this.msgErrorLogin = error.error.message;
-    })
-
+        }
+      )
   }
 
   toggleVisibility() {

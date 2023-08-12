@@ -4,13 +4,15 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { MsgComponent } from './msg-warning/msg-warning.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
   declarations: [
     FooterComponent,
     HeaderComponent,
-    MsgComponent
+    MsgComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { MsgComponent } from './msg-warning/msg-warning.component';
   exports: [
     FooterComponent,
     HeaderComponent,
-    MsgComponent
+    MsgComponent,
+    LoaderComponent
   ]
 })
 export class ComponentsModule { }

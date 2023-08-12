@@ -5,7 +5,8 @@ import { ComponentsModule } from './components/components.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { LoaderInterceptor } from './components/loader/loader.interceptor';
 
 
 @NgModule({
@@ -19,7 +20,13 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ComponentsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

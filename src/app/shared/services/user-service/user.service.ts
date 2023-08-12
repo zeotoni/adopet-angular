@@ -6,7 +6,8 @@ import { TokenService } from "../token/token.service";
 import jwtDecode from "jwt-decode";
 
 
-const API = 'https://adopet-api.onrender.com';
+// const API = 'https://adopet-api.onrender.com';
+const API = 'http://localhost:3000'
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class UserService {
   ) {}
 
   registerUser(user: User): Observable<User> {
-    return this.http.post<User>(`${API}/users`, user)
+    return this.http.post<User>(`${API}/auth/signup`, user)
   }
 
   updateUser(userId: string, body: any): Observable<User> {
@@ -37,6 +38,14 @@ export class UserService {
     const id = user.id;
 
     return id;
+  }
+
+  getUserImage(): string  {
+    const tokenSave =  this.tokenService.getToken()!;
+    const user: any = jwtDecode(tokenSave);
+    const image = user.image;
+
+    return image;
   }
 
   logOut() {

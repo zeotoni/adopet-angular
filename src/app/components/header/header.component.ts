@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { UserService } from 'src/app/shared/services/user-service/user.service';
 import { Router } from '@angular/router';
@@ -11,14 +11,14 @@ import jwtDecode from 'jwt-decode';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit, AfterViewInit{
 
 
   user!: User;
-  showUser: boolean = false;
-  showLogin!: boolean;
+  showUserInfo: boolean = false;
+  showLoginBtn!: boolean;
   menu!: boolean;
-  userImage: string = 'assets/img/perfil.png'
+  userImage!: string;
 
   constructor(
     private location: Location,
@@ -28,25 +28,27 @@ export class HeaderComponent implements OnInit{
   ) {}
 
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
 
+  }
+
+
+  ngOnInit(): void {
     this.location.onUrlChange(url => {
       if(url.startsWith('/pets') && this.tokenService.hasToken()) {
-        this.showUser = true;
+        this.showUserInfo = true;
         this.menu = false;
-        this.user = jwtDecode(this.tokenService.getToken()!);
-        this.userImage = this.user.image;
+        this.userImage = this.userService.getUserImage();
 
       } else {
-        this.showUser = false;
-        this.showLogin = true
+        this.showUserInfo = false;
+        this.showLoginBtn = true
       }
 
       if(url.startsWith('/home')) {
-        this.showLogin = false;
+        this.showLoginBtn = false;
       }
     })
-
   }
 
   logOut(): void {

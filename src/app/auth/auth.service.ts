@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
 
-const API = 'https://adopet-api.onrender.com';
+// const API = 'https://adopet-api.onrender.com';
+const API = 'http://localhost:3000';
 
 @Injectable({
   providedIn: 'root'

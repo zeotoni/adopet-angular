@@ -21,6 +21,9 @@
 
     <app-msg-warning text="{{msgErrorLogin}}"></app-msg-warning>
 
-    <button [disabled]="loginForm.invalid" type="submit" class="btn signin__btn">Entrar</button>
+    <button [disabled]="loginForm.invalid" type="submit" class="btn signin__btn">
+      <app-spinner-loader></app-spinner-loader>
+      Entrar
+    </button>
   </form>
 </main>
