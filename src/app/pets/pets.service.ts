@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Pet, Pets } from './pet/pet';
+import { environment } from 'src/environments/environment.development';
 
 // const API = "https://adopet-api.onrender.com/pets"
-const API = "http://localhost:3000/pets"
+const API = environment.ApiUrl;
 
 @Injectable({
   providedIn: 'root'
