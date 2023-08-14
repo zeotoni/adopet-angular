@@ -17,6 +17,6 @@ export class PetsService {
   ) { }
 
   getPetList(): Observable<Pets> {
-    return this.http.get<Pets>(API);
+    return this.http.get<Pets>(`${API}/pets`);
   }
 }
